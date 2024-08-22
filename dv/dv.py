@@ -29,13 +29,15 @@ def get_file(ftp, remote_path, local_path):
   try:
     ftp.get(remote_path, local_path)
     return True
-  except:
+  except Exception as e:
+    print(e)
     return None
 
 def read_xml(fpath):
   try:
     return xmltodict.parse(open(fpath, 'r').read())
-  except:
+   except Exception as e:
+    print(e)
     return None
 
 def get_modified_date(ftp, fpath):
@@ -44,7 +46,8 @@ def get_modified_date(ftp, fpath):
     if stat is None:
       return None
     return datetime.datetime.fromtimestamp(stat.st_mtime).date()
-  except:
+  except Exception as e:
+    pront(e)
     return None
 
 def process_sort(data, data_path):
@@ -66,7 +69,7 @@ def process_sort(data, data_path):
     fbelow.write(below)
     fbelow.close()
     return True
-  except:
+  except Exception as e:
     return None
 
 def get_data_path(date):
