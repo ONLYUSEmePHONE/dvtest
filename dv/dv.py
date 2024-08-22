@@ -4,6 +4,7 @@ import os
 import xmltodict
 import json
 import paramiko
+import boto3
 
 class SSHCreds:
   def __init__(self, host, username, password, port=22):
