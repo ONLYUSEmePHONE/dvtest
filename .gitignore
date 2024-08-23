@@ -2,3 +2,5 @@
 .vscode/
 .env
 data/
+.test_keypair.pem
+__pycache__
